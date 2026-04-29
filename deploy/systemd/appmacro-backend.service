@@ -1,0 +1,15 @@
+[Unit]
+Description=APPMacroGold Backend (FastAPI)
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/appmacro
+EnvironmentFile=/opt/appmacro/.env
+ExecStart=/opt/appmacro/.venv/bin/uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8000
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
