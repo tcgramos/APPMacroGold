@@ -3,6 +3,8 @@
 Plataforma institucional de monitoramento macroeconômico para **XAUUSD (ouro)** com análise de correlação intermarket, score probabilístico e alertas em tempo real.
 
 ## Stack
+> Compatível com **Python 3.14.4** (sem dependências obsoletas como `numpy`, `pandas`, `apscheduler`, `psycopg[binary]`).
+
 - **Frontend:** Next.js, React, TypeScript, Tailwind, shadcn/ui, Recharts
 - **Backend:** FastAPI, SQLAlchemy, APScheduler, WebSocket, PostgreSQL, Redis (opcional), RabbitMQ (opcional)
 - **Dados:** adapters TradingView (`tvDatafeed`/`tradingview-ta`) com fallback para providers alternativos
@@ -54,7 +56,7 @@ nginx/
 ### 2) Backend
 ```bash
 cp .env.example .env
-python -m venv .venv
+python3.14 -m venv .venv
 source .venv/bin/activate
 pip install -r backend/requirements.txt
 uvicorn app.main:app --app-dir backend --host 0.0.0.0 --port 8000 --reload
